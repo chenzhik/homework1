@@ -229,7 +229,6 @@ int Seek1Word(FILE* stream, string &temp)
 	// 'prelength' return the lengh of the word
 	// 'temp' store the word
 	char ch;
-	int flag;
 	int prelength;
 
 	// initialize the variables
@@ -264,8 +263,7 @@ int Seek1Word(FILE* stream, string &temp)
 		if (prelength == 4)
 		{
 			// seek the next separator to give out the length of this word 
-			flag = JudgeCharType(ch);
-			while (flag == number || flag == alpha)
+			while (JudgeCharType(ch) == number || isalpha(ch))
 			{
 				temp.push_back(ch);
 				prelength++;
